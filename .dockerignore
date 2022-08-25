@@ -1,0 +1,10 @@
+node_modules
+Dockerfile
+.dockerignore
+.git
+.gitignore
+docker-compose*
+ecosystem.config.js
+.editorconfig
+.eslintrc.json
+.vscode
