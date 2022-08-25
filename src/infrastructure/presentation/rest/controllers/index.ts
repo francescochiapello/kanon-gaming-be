@@ -1,5 +1,7 @@
-import * as countryController from './controller';
+import * as countryController from './countryController';
+import * as authController from './authController';
 
 export {
-  countryController
+  countryController,
+  authController
 };

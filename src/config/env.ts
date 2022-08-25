@@ -10,7 +10,9 @@ const envOrDefault = (
 
 const env = {
   restPort: envOrDefault('REST_PORT'),
-  maxBodySize: envOrDefault('MAX_BODY_SIZE')
+  maxBodySize: envOrDefault('MAX_BODY_SIZE'),
+  jwtSecretKey: envOrDefault('JWT_SECRET_KEY'),
+  tokenHeaderKey: envOrDefault('TOKEN_HEADER_KEY')
 };
 
 export default env;
