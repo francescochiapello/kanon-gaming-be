@@ -3,8 +3,7 @@ import Router from 'koa-router';
 import KoaBody from 'koa-body';
 import cors from '@koa/cors';
 import jwt from 'jsonwebtoken';
-import env from '../../../config/env';
-import { countryController, authController } from './controllers';
+import { countryController, authController, slotController } from './controllers';
 
 const app = new Koa();
 const router = new Router();
@@ -15,16 +14,15 @@ app.use(router.allowedMethods());
 const koaBody = KoaBody({
   multipart: true,
   json: true,
-  formLimit: parseInt(env.maxBodySize),
-  textLimit: parseInt(env.maxBodySize),
+  formLimit: 288358400,
+  textLimit: 288358400,
   formidable: {
-    maxFileSize: parseInt(env.maxBodySize)
+    maxFileSize: 288358400
   }
 });
 
 const authMiddleware: Koa.Middleware = async (ctx: Koa.Context, next: Koa.Next): Promise<any> => {
-  // const tokenHeaderKey = env.tokenHeaderKey;
-  const jwtSecretKey = env.jwtSecretKey;
+  const jwtSecretKey = '4bb4d5642f03470bb28078e6074bf4e4';
 
   try {
       const token = ctx.headers.authorization || '';
@@ -51,5 +49,7 @@ router.post('/api/v0/signup', koaBody, authController.signup);
 router.post('/api/v0/signin', koaBody, authController.signin);
 
 router.get('/api/v0/country', koaBody, authMiddleware, countryController.getCountryByName);
+
+router.get('/api/v0/slot', koaBody, authMiddleware, slotController.spin);
 
 export default app;

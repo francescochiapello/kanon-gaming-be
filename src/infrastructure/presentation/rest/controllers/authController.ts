@@ -1,6 +1,5 @@
 import Koa from 'koa';
 import jwt from 'jsonwebtoken';
-import env from '../../../../config/env';
 import database from '../../../database';
 import md5 from 'md5';
 
@@ -62,7 +61,7 @@ export async function signin(ctx: Koa.Context) {
       return ctx;
     }
 
-    const jwtSecretKey = env.jwtSecretKey;
+    const jwtSecretKey = '4bb4d5642f03470bb28078e6074bf4e4';
     const data = {
         time: Date(),
         userId: username

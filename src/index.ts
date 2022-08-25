@@ -1,10 +1,12 @@
-import env from './config/env';
 import logger from './infrastructure/logger/logger';
 import restServer from './infrastructure/presentation/rest';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 async function main () {
   try {
-    const port = env.restPort;
+    const port = '5050';
     restServer.listen({ port }, () => {
       logger.info(`Rest server ready at port ${port}`);
     });
