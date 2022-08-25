@@ -17,6 +17,7 @@
   "plugins": [
       "@typescript-eslint"
   ],
+  "ignorePatterns": ["*.js"],
   "rules": {
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
