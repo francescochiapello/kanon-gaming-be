@@ -37,6 +37,7 @@ export default function spinSlotMachine () {
   } // else no win
 
   return {
-    coins
+    coins,
+    spin: `${first} - ${second} - ${third}`
   };
 }
